@@ -1,4 +1,4 @@
-/* import BarChart from '@/components/icons/bar_chart'
+import BarChart from '@/components/icons/bar_chart'
 import Calendar from '@/components/icons/calendar'
 import CheckCircle from '@/components/icons/check_circled'
 import Chip from '@/components/icons/chip'
@@ -26,7 +26,7 @@ import Star from '@/components/icons/star'
 import Tune from '@/components/icons/tune'
 import Video from '@/components/icons/video_recorder'
 import Wallet from '@/components/icons/wallet'
-import Warning from '@/components/icons/warning' */
+import Warning from '@/components/icons/warning'
 export const pricingCards = [
   {
     title: 'Starter',
@@ -61,7 +61,7 @@ export const addOnProducts = [
   { title: 'Priority Support', id: 'prod_PNjJAE2EpP16pn' },
 ]
 
-/* export const icons = [
+export const icons = [
   {
     value: 'chart',
     label: 'Bar Chart',
@@ -207,7 +207,7 @@ export const addOnProducts = [
     label: 'Clipboard Icon',
     path: ClipboardIcon,
   },
-] */
+]
 
 export type EditorBtns =
   | 'text'
