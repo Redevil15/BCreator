@@ -1,4 +1,5 @@
 import { Button } from '@/components/ui/button'
+import { UploadDropzone } from '@/lib/uploadthing'
 import { FileIcon, XIcon } from 'lucide-react'
 import Image from 'next/image'
 import React from 'react'
@@ -55,7 +56,15 @@ const FileUpload = ({
 
   return (
     <div className='w-full bg-muted/30'>
-
+      <UploadDropzone
+        endpoint={apiEndpoint}
+        onClientUploadComplete={(res) => {
+          onChange(res?.[0].url)
+        }}
+        onUploadError={(err: Error) => {
+          console.log(err)
+        }}
+      />
     </div>
   )
 }

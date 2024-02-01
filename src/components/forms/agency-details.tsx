@@ -10,8 +10,10 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useToast } from '@/components/ui/use-toast'
 import { AlertDialog } from '@/components/ui/alert-dialog';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../ui/card';
-import { Form, FormControl, FormField, FormItem, FormLabel } from '../ui/form';
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '../ui/form';
 import FileUpload from '@/app/(main)/agency/_components/file-upload';
+import { Button } from '../ui/button';
+import { Input } from '../ui/input';
 
 
 type AgencyProps = {
@@ -105,23 +107,86 @@ const AgencyDetails = ({
                 disabled={isLoading}
                 control={form.control}
                 name="agencyLogo"
-                render={({field}) => (
+                render={({ field }) => (
                   <FormItem>
                     <FormLabel>
                       Agency Logo
                     </FormLabel>
                     <FormControl>
                       <FileUpload
-
-                      >
-
-                      </FileUpload>
+                        apiEndpoint="agencyLogo"
+                        onChange={field.onChange}
+                        value={field.value}
+                      />
                     </FormControl>
+                    <FormMessage />
                   </FormItem>
                 )}
-              >
+              />
 
-              </FormField>
+              <div className='flex md:flex-row gap-4'>
+                <FormField
+                  disabled={isLoading}
+                  control={form.control}
+                  name="name"
+                  render={({ field }) => (
+                    <FormItem className='flex-1'>
+                      <FormLabel>
+                        Agency Name
+                      </FormLabel>
+                      <FormControl>
+                        <Input
+                          placeholder="Your Agency Name"
+                          {...field}
+                          type="text"
+                          className="w-full"
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  disabled={isLoading}
+                  control={form.control}
+                  name="companyEmail"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>
+                        Company Email
+                      </FormLabel>
+                      <FormControl>
+                        <Input
+                          {...field}
+                          type="email"
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </div>
+              <div className='flex md:flex-row gap-4'>
+                <FormField
+                  disabled={isLoading}
+                  control={form.control}
+                  name="companyPhone"
+                  render={({ field }) => (
+                    <FormItem className='flex-1'>
+                      <FormLabel>
+                        Company Phone
+                      </FormLabel>
+                      <FormControl>
+                        <Input
+                          {...field}
+                          type="number"
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </div>
             </form>
           </Form>
         </CardContent>
